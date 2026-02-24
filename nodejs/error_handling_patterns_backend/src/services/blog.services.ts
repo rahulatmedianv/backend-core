@@ -17,7 +17,6 @@ class BlogService {
     async createBlog(blogs: Blogs) {
         const id = crypto.randomUUID();
         const data = await this.readBlog();
-        console.log({data});
         blogs.id = id;
         data.push(blogs);
         file.writeFileSync(FILE_PATH, JSON.stringify(data));
@@ -33,6 +32,13 @@ class BlogService {
             return blog;
         })
 
+        file.writeFileSync(FILE_PATH, JSON.stringify(updatedData));
+        return;
+    }
+
+    async deleteBlog(id: string) {
+        const data = await this.readBlog();
+        const updatedData = data.filter((blog: Blogs) => blog.id !== id);
         file.writeFileSync(FILE_PATH, JSON.stringify(updatedData));
         return;
     }
