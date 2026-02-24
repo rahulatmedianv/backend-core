@@ -1,5 +1,5 @@
-import { Request, Response, NextFunction } from "express";
-import { AppError } from "../utils/AppError";
+import type { Request, Response, NextFunction } from "express";
+import { AppError } from "../utils/AppError.ts";
 
 export const globalErrorHandler = (
   err: any,
@@ -14,4 +14,9 @@ export const globalErrorHandler = (
       message: err.message,
     });
   }
+
+  return res.status(500).json({
+    status: "error",
+    message: "Soemthing went wrong",
+  });
 };
