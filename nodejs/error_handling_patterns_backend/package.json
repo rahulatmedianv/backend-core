@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node src/server.ts",
-    "start:dev":"nodemon --ignore src/data.json src/server.ts "
+    "start": "node src/server.ts",
+    "start:dev": "nodemon --ignore src/data.json src/server.ts "
   },
   "keywords": [],
   "author": "",
